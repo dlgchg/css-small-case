@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle CSS | JavaScript</title>
+    <style>
+        * {padding: 0;margin: 0;}
+        body{height: 100vh; background-color: brown; display: flex; justify-content: center; align-items: center; transition: 0.2s;}
+        #toggle {
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+        #toggle::before {
+            content: '';
+            width: 70px;
+            height: 7px;
+            background-color: white;
+            position: absolute;
+            transform: translateY(-20px);
+            border-radius: 5px;
+            box-shadow: 0 20px 0 white;
+            transition: 0.2s;
+        }
+        #toggle::after {
+            content: '';
+            width: 70px;
+            height: 7px;
+            background-color: white;
+            position: absolute;
+            transform: translateY(20px);
+            border-radius: 5px;
+            transition: 0.2s;
+        }
+        body.active {
+            background-color: cadetblue;
+        }
+        #toggle.active {
+            background-color: brown;
+        }
+        #toggle.active::before {
+            transform: translateY(0) rotate(45deg);
+            box-shadow: 0 0 0 white;
+        }
+        #toggle.active::after {
+            transform: translateY(0) rotate(-45deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="toggle"></div>
+    <script>
+        let toggle = document.getElementById('toggle')
+        let body = document.querySelector('body')
+        toggle.onclick = (event) => {
+            toggle.classList.toggle('active')
+            body.classList.toggle('active')
+        }
+    </script>
+</body>
+</html>

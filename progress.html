@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Progress Bar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #1c1c1c;
+        }
+
+        .container {
+            width: 500px;
+            position: relative;
+        }
+
+        .container .loading {
+            position: relative;
+            display: flex;
+            background: linear-gradient(#616161 0%, #333 10%, #222);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+            border: solid 2px #000;
+        }
+
+        .container .loading::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #22ffde;
+            border-radius: 10px;
+            position: absolute;
+            right: 20px;
+            top: 25px;
+            box-shadow: 0 0 5px #22e4e3, 0 0 10px #22e4e3, 0 0 30px #22e4e3;
+            animation: animateLight 1s linear infinite;
+        }
+        @keyframes animateLight {
+            0%, 49.9% {
+                background: #22ffde;
+                box-shadow: 0 0 5px #22e4e3, 0 0 10px #22e4e3, 0 0 30px #22e4e3;
+            }
+            50%, 100% {
+                background: #000;
+                box-shadow: none;
+            }
+        }
+
+        .container .loading::before {
+            content: '';
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 10;
+            pointer-events: none;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .container .loading .text {
+            position: relative;
+            width: 80px;
+            color: white;
+            text-align: right;
+            letter-spacing: 1px;
+        }
+
+        .container .loading .percent {
+            position: relative;
+            width: calc(100% - 120px);
+            height: 20px;
+            background: #151515;
+            border-radius: 20px;
+            margin: 0 10px;
+            box-shadow: inset 0 0 10px #000;
+            overflow: hidden;
+        }
+
+        .container .loading .percent .progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(45deg, #22ffde, #2196f3);
+            border-radius: 20px;
+            animation: aniamte 6s ease-in-out infinite;
+        }
+
+        @keyframes aniamte {
+            0% {
+                width: 0;
+                left: 0;
+            }
+
+            50% {
+                width: 100%;
+                left: 0;
+            }
+
+            100% {
+                width: 100%;
+                left: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="loading">
+            <span class="text">Loading</span>
+            <div class="percent">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

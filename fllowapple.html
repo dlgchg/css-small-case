@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Arrow Follow kuluo Or Mouse Cursor</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            cursor: url('/Users/liwei/Documents/css-small-case/images/apple.png'), pointer;
+            overflow: hidden;
+        }
+
+        .arrow {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <img src="images/kuluo.png" class="arrow">
+    <script>
+
+        function randomSize(min, max) {
+            min = Math.ceil(40)
+            max = Math.ceil(150)
+            return Math.floor(Math.random() * (max - min)) + min
+        }
+
+        let arrows = document.querySelectorAll('.arrow')
+        arrows.forEach(arrow => {
+            arrow.style.left = Math.floor(Math.random() * 99) + 'vw'
+            arrow.style.top = Math.floor(Math.random() * 99) + 'vh'
+            arrow.style.width = randomSize() + 'px'
+        })
+        document.querySelector('body').addEventListener('mousemove', event => {
+            
+            arrows.forEach(arrow => {
+                let x = (arrow.getBoundingClientRect().left) + (arrow.clientWidth / 2)
+                let y = (arrow.getBoundingClientRect().left) + (arrow.clientWidth / 2)
+                let radian = Math.atan2(event.pageX - x, event.pageY - y)
+                let rot = (radian * (180 / Math.PI) * -1) + 270
+                arrow.style.transform = `rotate(${rot}deg)`
+            })
+        })
+    </script>
+</body>
+
+</html>

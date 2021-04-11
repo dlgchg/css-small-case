@@ -7,5 +7,6 @@
 | [Progress](https://github.com/dlgchg/css-small-case/blob/main/progress.html) | ![](https://github.com/dlgchg/css-small-case/blob/main/gif/progress.gif?raw=true) |
 | [Flip Image](https://github.com/dlgchg/css-small-case/blob/main/flipimage.html) | ![](https://github.com/dlgchg/css-small-case/blob/main/gif/flipimage.gif?raw=true) |
 | [Radio Button](https://github.com/dlgchg/css-small-case/blob/main/radio.html) | ![](https://github.com/dlgchg/css-small-case/blob/main/gif/radio.gif?raw=true) |
+| [Radio Button 2](https://github.com/dlgchg/css-small-case/blob/main/radio2.html) | ![](https://github.com/dlgchg/css-small-case/blob/main/gif/radio2.gif?raw=true) |
 | [Fllow Cursor](https://github.com/dlgchg/css-small-case/blob/main/fllowapple.html) | ![](https://github.com/dlgchg/css-small-case/blob/main/gif/fllowcursor.gif?raw=true) |
 | [Loading](https://github.com/dlgchg/css-small-case/blob/main/loading.html) | ![](https://github.com/dlgchg/css-small-case/blob/main/gif/loading.gif?raw=true) |

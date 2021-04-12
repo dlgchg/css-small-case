@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle 2</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #2b2b2b;
+            transition: .5s;
+        }
+
+        body.active {
+            background: #f8f8f8;
+        }
+
+        #toggle {
+            position: relative;
+            width: 260px;
+            height: 130px;
+            display: block;
+            border-radius: 130px;
+            background: #222;
+            box-shadow: inset 0 8px 60px rgba(0, 0, 0, .1),
+                inset 0 8px 8px rgba(0, 0, 0, .1),
+                inset 0 -4px 4px rgba(0, 0, 0, .1);
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        #toggle.active {
+            background: #f8f8f8;
+            box-shadow: inset 0 8px 60px rgba(0, 0, 0, .1),
+                inset 0 8px 8px rgba(255, 255, 255, .1),
+                inset 0 -4px 4px rgba(255, 255, 255, .1);
+        }
+
+        #toggle .indicator {
+            width: 130px;
+            height: 130px;
+            position: absolute;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to bottom, #444, #222);
+            transform: scale(0.9);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, .5),
+                inset 0 4px 4px rgba(255, 255, 255, .2),
+                inset 0 -4px 4px rgba(255, 255, 255, .2);
+            transition: .5s;
+
+        }
+
+        #toggle.active .indicator {
+            left: 130px;
+            background: linear-gradient(to bottom, #eaeaea, #f8f8f8);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, .5),
+                inset 0 4px 4px rgba(255, 255, 255, 1),
+                inset 0 -4px 4px rgba(255, 255, 255, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="toggle">
+        <i class="indicator"></i>
+    </div>
+    <script>
+        let body = document.querySelector('body')
+        let toggle = document.getElementById('toggle')
+        toggle.onclick = () => {
+            toggle.classList.toggle('active')
+            body.classList.toggle('active')
+        }
+    </script>
+</body>
+
+</html>
